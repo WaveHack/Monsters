@@ -41,7 +41,7 @@ namespace Monsters.Domain.Monsters
         /// <para>All stats can be improved with equipment, and in combat with things like buffs, debuffs, and
         /// auras.</para>
         /// </remarks>
-        public Dictionary<Stat, int> Stats { get; set; }
+        public Dictionary<Stat, int> Stats { get; } = new();
 
         /// <summary>
         /// The monster species' combat skills.
@@ -51,61 +51,7 @@ namespace Monsters.Domain.Monsters
         /// <para>All monster species have their own unique set of combat skills, although some skills may be shared by
         /// multiple monster species (e.g. both Wolf and Bear having the same Bite skill).</para>
         /// </remarks>
-        public List<Skill> Skills { get; set; }
-
-        public MonsterSpecies(
-            string name,
-            int health = 10,
-            int attack = 10,
-            int defense = 10,
-            int speed = 100,
-            int accuracy = 0,
-            int resistance = 15,
-            int criticalRate = 15,
-            int criticalDamage = 50,
-            IEnumerable<Skill> skills = null
-        )
-        {
-            Name = name;
-
-            Stats = new Dictionary<Stat, int>
-            {
-                {Stat.Health, health},
-                {Stat.Attack, attack},
-                {Stat.Defense, defense},
-                {Stat.Speed, speed},
-                {Stat.Accuracy, accuracy},
-                {Stat.Resistance, resistance},
-                {Stat.CriticalRate, criticalRate},
-                {Stat.CriticalDamage, criticalDamage},
-            };
-
-            Skills = new List<Skill>();
-
-            if (skills == null)
-            {
-                Skills.Add(new ActiveSkill
-                {
-                    Name = "Basic Attack",
-                    Cooldown = 0,
-                    Target = Target.Enemy,
-                    Components = new List<Component>
-                    {
-                        new DamageComponent
-                        {
-                            DamageMultiplier = 80,
-                        },
-                    },
-                });
-            }
-            else
-            {
-                foreach (var skill in skills)
-                {
-                    Skills.Add(skill);
-                }
-            }
-        }
+        public List<Skill> Skills { get; } = new();
 
         public override string ToString()
         {
