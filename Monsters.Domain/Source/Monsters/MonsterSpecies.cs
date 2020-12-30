@@ -23,7 +23,7 @@ namespace Monsters.Domain.Monsters
         /// contain spaces.
         /// </remarks>
         /// <example>
-        /// Slime, Fairy, Unicorn, Zombie, Mushroom, Lich, Dragon etc
+        /// Slime, Fairy, Unicorn, Zombie, Mushroom, Lich King, Dragon etc
         /// </example>
         public string Name { get; set; }
 
