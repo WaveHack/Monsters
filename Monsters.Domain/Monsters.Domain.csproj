@@ -5,12 +5,4 @@
         <IsPackable>false</IsPackable>
     </PropertyGroup>
 
-    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-      <DocumentationFile>bin\Debug\Monsters.Domain.xml</DocumentationFile>
-    </PropertyGroup>
-
-    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-      <DocumentationFile>bin\Release\Monsters.Domain.xml</DocumentationFile>
-    </PropertyGroup>
-
 </Project>
