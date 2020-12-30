@@ -29,20 +29,25 @@ namespace Monsters.Domain.Monsters
 
         /// <summary>
         /// The monster species' base stats.
+        /// </summary>
+        /// <remarks>
         /// <para>Stats are separated between primary stats (Health, Attack, Defense) and secondary stats (Speed,
         /// Accuracy, Resistance, CriticalRate and CriticalDamage).</para>
         /// <para>Primary stats increase as the monster levels up, and thus enable the monster to grow in power.</para>
         /// <para>Secondary stats do NOT increase with monster level.</para>
-        /// <para>All stats can be improved with gear, and in combat with things like buffs, debuffs, and auras.</para>
-        /// </summary>
+        /// <para>All stats can be improved with equipment, and in combat with things like buffs, debuffs, and
+        /// auras.</para>
+        /// </remarks>
         public Dictionary<Stat, int> Stats { get; set; }
 
         /// <summary>
         /// The monster species' combat skills.
+        /// </summary>
+        /// <remarks>
         /// <para>Combat skills allows monsters to attack, do damage, buff teammates, and the like.</para>
         /// <para>All monster species have their own unique set of combat skills, although some skills may be shared by
         /// multiple monster species (e.g. both Wolf and Bear having the same Bite skill).</para>
-        /// </summary>
+        /// </remarks>
         public List<Skill> Skills { get; set; }
 
         // todo: monster role (hp, attack, defense, support)
