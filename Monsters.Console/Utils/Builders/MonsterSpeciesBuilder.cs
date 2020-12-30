@@ -45,24 +45,5 @@ namespace Monsters.Console.Utils.Builders
             _monsterSpecies.Skills.Add(skill);
             return this;
         }
-
-        public MonsterSpeciesBuilder AddSimpleDamageSkill(string name, int damageMultiplier)
-        {
-            var skill = new ActiveSkill
-            {
-                Name = name,
-                Cooldown = 0,
-                Target = Target.Enemy,
-                Components = new List<Component>
-                {
-                    new DamageComponent
-                    {
-                        DamageMultiplier = damageMultiplier,
-                    },
-                },
-            };
-
-            return AddSkill(skill);
-        }
     }
 }
