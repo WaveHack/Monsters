@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Monsters.Console.Utils.Builders;
 using Monsters.Domain.Combat;
 using Monsters.Domain.Combat.Controllers;
 using Monsters.Domain.Monsters;
@@ -15,99 +16,11 @@ namespace Monsters.Console
     {
         private static void Main()
         {
-            var slimeSpecies = new MonsterSpecies(
-                "Slime",
-                10,
-                10,
-                10,
-                98,
-                skills: new[]
-                {
-                    new ActiveSkill
-                    {
-                        Name = "Slime",
-                        Cooldown = 0,
-                        Target = Target.Enemy,
-                        Components = new List<Component>
-                        {
-                            new DamageComponent
-                            {
-                                DamageMultiplier = 80,
-                            },
-                            new StatusEffectComponent
-                            {
-                                ChanceToApply = 20,
-                                StatusEffect = StatusEffect.Poison,
-                                AmountOfTurns = 2,
-                            },
-                        }
-                    },
-                    new ActiveSkill
-                    {
-                        Name = "Spread Goo",
-                        Cooldown = 2,
-                        Target = Target.EnemyTeam,
-                        Components = new List<Component>
-                        {
-                            new DamageComponent
-                            {
-                                DamageMultiplier = 20,
-                            },
-                            new DamageComponent
-                            {
-                                DamageMultiplier = 20,
-                            },
-                            new StatusEffectComponent
-                            {
-                                ChanceToApply = 20,
-                                StatusEffect = StatusEffect.Poison,
-                                AmountOfTurns = 2,
-                            },
-                        }
-                    },
-                }
-            );
+            var builder = new MonsterSpeciesBuilder();
+            var director = new MonsterSpeciesDirector(builder);
 
-            var wolfSpecies = new MonsterSpecies(
-                "Wolf",
-                8,
-                14,
-                8,
-                102,
-                skills: new[]
-                {
-                    new ActiveSkill
-                    {
-                        Name = "Claw",
-                        Cooldown = 0,
-                        Target = Target.Enemy,
-                        Components = new List<Component>
-                        {
-                            new DamageComponent
-                            {
-                                DamageMultiplier = 90,
-                            },
-                        }
-                    },
-                    new ActiveSkill
-                    {
-                        Name = "Bite",
-                        Cooldown = 2,
-                        Target = Target.Enemy,
-                        Components = new List<Component>
-                        {
-                            new DamageComponent
-                            {
-                                DamageMultiplier = 60,
-                            },
-                            new DamageComponent
-                            {
-                                DamageMultiplier = 60,
-                            },
-                        }
-                    },
-                }
-            );
+            var slimeSpecies = director.CreateSlime();
+            var wolfSpecies = director.CreateWolf();
 
             var playerTeam = new List<Monster>
             {
