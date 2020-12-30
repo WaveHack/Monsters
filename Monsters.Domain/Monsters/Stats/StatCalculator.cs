@@ -4,19 +4,29 @@ namespace Monsters.Domain.Monsters.Stats
 {
     public static class StatCalculator
     {
+        private const int LevelModifierOffset = 10;
+
         public static int CalculateMonsterStat(Monster monster, Stat stat)
         {
+            if (IsPrimaryStat(stat))
+                return CalculateMonsterPrimaryStat(monster, stat);
+
             if (IsSecondaryStat(stat))
                 return monster.Species.Stats[stat];
 
-            var levelModifier = 10 + monster.Level;
+            throw new ArgumentOutOfRangeException(nameof(stat), stat, null);
+        }
+
+        private static int CalculateMonsterPrimaryStat(Monster monster, Stat stat)
+        {
+            var levelModifier = monster.Level + LevelModifierOffset;
 
             var statMultiplier = stat switch
             {
                 Stat.Health => levelModifier * 2f,
                 Stat.Attack => levelModifier / 2f,
                 Stat.Defense => levelModifier / 2f,
-                _ => throw new ArgumentOutOfRangeException(nameof(stat), stat, null)
+                _ => throw new ArgumentOutOfRangeException(nameof(stat), stat, $"{stat} is not a primary stat")
             };
 
             var baseStat = monster.Species.Stats[stat];
@@ -24,32 +34,28 @@ namespace Monsters.Domain.Monsters.Stats
             return (int) Math.Round(baseStat * statMultiplier);
         }
 
-        public static bool IsPrimaryStat(Stat stat)
+        private static bool IsPrimaryStat(Stat stat)
         {
-            switch (stat)
+            return stat switch
             {
-                case Stat.Health:
-                case Stat.Attack:
-                case Stat.Defense:
-                    return true;
-                default:
-                    return false;
-            }
+                Stat.Health => true,
+                Stat.Attack => true,
+                Stat.Defense => true,
+                _ => false
+            };
         }
 
-        public static bool IsSecondaryStat(Stat stat)
+        private static bool IsSecondaryStat(Stat stat)
         {
-            switch (stat)
+            return stat switch
             {
-                case Stat.Speed:
-                case Stat.Accuracy:
-                case Stat.Resistance:
-                case Stat.CriticalRate:
-                case Stat.CriticalDamage:
-                    return true;
-                default:
-                    return false;
-            }
+                Stat.Speed => true,
+                Stat.Accuracy => true,
+                Stat.Resistance => true,
+                Stat.CriticalRate => true,
+                Stat.CriticalDamage => true,
+                _ => false
+            };
         }
     }
 }
