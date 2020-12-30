@@ -12,7 +12,7 @@ namespace Monsters.Domain.Monsters
     {
         public MonsterSpecies Species { get; }
         public int Level { get; }
-        public Dictionary<Stat, int> Stats { get; }
+        public Dictionary<Stat, int> Stats { get; } = new();
 
         // todo: guid
 
@@ -20,7 +20,6 @@ namespace Monsters.Domain.Monsters
         {
             Species = species;
             Level = level;
-            Stats = new Dictionary<Stat, int>();
 
             CalculateStats();
         }
