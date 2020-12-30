@@ -53,9 +53,6 @@ namespace Monsters.Domain.Monsters
         /// </remarks>
         public List<Skill> Skills { get; set; }
 
-        // todo: monster role (hp, attack, defense, support)
-        // todo: monster element (fire, nature, etc)
-
         public MonsterSpecies(
             string name,
             int health = 10,
