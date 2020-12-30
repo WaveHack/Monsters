@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monsters.Console", "Monsters.Console\Monsters.Console.csproj", "{37B9EE67-8BF1-4967-A4F6-5F3AB705BFAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monsters.Domain", "Monsters.Domain\Monsters.Domain.csproj", "{4BDB6B5A-CC33-4C79-B1C2-2D0C95A98E40}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37B9EE67-8BF1-4967-A4F6-5F3AB705BFAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37B9EE67-8BF1-4967-A4F6-5F3AB705BFAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37B9EE67-8BF1-4967-A4F6-5F3AB705BFAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37B9EE67-8BF1-4967-A4F6-5F3AB705BFAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BDB6B5A-CC33-4C79-B1C2-2D0C95A98E40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BDB6B5A-CC33-4C79-B1C2-2D0C95A98E40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BDB6B5A-CC33-4C79-B1C2-2D0C95A98E40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BDB6B5A-CC33-4C79-B1C2-2D0C95A98E40}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
