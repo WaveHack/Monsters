@@ -21,10 +21,10 @@ namespace Monsters.Domain.Monsters
             Species = species;
             Level = level;
 
-            CalculateStats();
+            RecalculateStats();
         }
 
-        private void CalculateStats()
+        private void RecalculateStats()
         {
             foreach (Stat stat in Enum.GetValues(typeof(Stat)))
             {
