@@ -8,7 +8,7 @@ namespace Monsters.Console.Utils.Builders
 {
     public class MonsterSpeciesBuilder
     {
-        private MonsterSpecies _monsterSpecies = new MonsterSpecies();
+        private MonsterSpecies _monsterSpecies = new();
 
         public MonsterSpecies Build() => _monsterSpecies;
 
