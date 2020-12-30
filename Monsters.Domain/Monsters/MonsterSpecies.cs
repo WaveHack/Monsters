@@ -19,8 +19,11 @@ namespace Monsters.Domain.Monsters
         /// The monster species' name.
         /// </summary>
         /// <remarks>
-        /// Needs to be unique between all species, capitalized, and singular (i.e. "Zombie" over "Zombies"). May
-        /// contain spaces.
+        /// Constraints:<br/>
+        /// - Must be unique between all monster species,<br/>
+        /// - Must be properly capitalized,<br/>
+        /// - Must be singular (i.e. "Zombie" over "Zombies"),<br/>
+        /// - May contain spaces.
         /// </remarks>
         /// <example>
         /// Slime, Fairy, Unicorn, Zombie, Mushroom, Lich King, Dragon etc
