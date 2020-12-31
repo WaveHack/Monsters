@@ -33,7 +33,7 @@ namespace Monsters.Console.Utils.Builders
                     {
                         new DamageComponent
                         {
-                            DamageMultiplier = 80,
+                            DamageMultiplier = .8f,
                         },
                         new StatusEffectComponent
                         {
@@ -52,11 +52,11 @@ namespace Monsters.Console.Utils.Builders
                     {
                         new DamageComponent
                         {
-                            DamageMultiplier = 20,
+                            DamageMultiplier = .2f,
                         },
                         new DamageComponent
                         {
-                            DamageMultiplier = 20,
+                            DamageMultiplier = .2f,
                         },
                         new StatusEffectComponent
                         {
@@ -88,7 +88,7 @@ namespace Monsters.Console.Utils.Builders
                     {
                         new DamageComponent
                         {
-                            DamageMultiplier = 90,
+                            DamageMultiplier = .9f,
                         },
                     }
                 })
@@ -101,11 +101,11 @@ namespace Monsters.Console.Utils.Builders
                     {
                         new DamageComponent
                         {
-                            DamageMultiplier = 60,
+                            DamageMultiplier = .6f,
                         },
                         new DamageComponent
                         {
-                            DamageMultiplier = 60,
+                            DamageMultiplier = .6f,
                         },
                     }
                 })

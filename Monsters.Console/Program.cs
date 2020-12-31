@@ -79,7 +79,7 @@ namespace Monsters.Console
                                 target.CurrentStats[Stat.Defense]
                             );
 
-                            damage *= (float) damageComponent.DamageMultiplier / 100;
+                            damage *= damageComponent.DamageMultiplier;
 
                             var realDamage = (int) Math.Round(damage);
 
