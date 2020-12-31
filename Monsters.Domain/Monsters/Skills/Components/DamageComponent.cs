@@ -2,6 +2,11 @@
 {
     public class DamageComponent : Component
     {
-        public float DamageMultiplier { get; set; }
+        public float DamageMultiplier { get; }
+
+        public DamageComponent(float damageMultiplier)
+        {
+            DamageMultiplier = damageMultiplier;
+        }
     }
 }

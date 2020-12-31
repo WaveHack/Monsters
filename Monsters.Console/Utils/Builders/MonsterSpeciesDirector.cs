@@ -24,47 +24,16 @@ namespace Monsters.Console.Utils.Builders
                 .SetStat(Stat.Health, 10)
                 .SetStat(Stat.Attack, 10)
                 .SetStat(Stat.Defense, 10)
-                .AddSkill(new ActiveSkill
+                .AddSkill(new ActiveSkill("Slime", Target.Enemy), new Component[]
                 {
-                    Name = "Slime",
-                    Cooldown = 0,
-                    Target = Target.Enemy,
-                    Components = new List<Component>
-                    {
-                        new DamageComponent
-                        {
-                            DamageMultiplier = .8f,
-                        },
-                        new StatusEffectComponent
-                        {
-                            ChanceToApply = 20,
-                            StatusEffect = StatusEffect.Poison,
-                            AmountOfTurns = 2,
-                        },
-                    }
+                    new DamageComponent(.8f),
+                    new StatusEffectComponent(StatusEffect.Poison, .2f),
                 })
-                .AddSkill(new ActiveSkill
+                .AddSkill(new ActiveSkill("Spread Goo", Target.EnemyTeam, 2), new Component[]
                 {
-                    Name = "Spread Goo",
-                    Cooldown = 2,
-                    Target = Target.EnemyTeam,
-                    Components = new List<Component>
-                    {
-                        new DamageComponent
-                        {
-                            DamageMultiplier = .2f,
-                        },
-                        new DamageComponent
-                        {
-                            DamageMultiplier = .2f,
-                        },
-                        new StatusEffectComponent
-                        {
-                            ChanceToApply = 20,
-                            StatusEffect = StatusEffect.Poison,
-                            AmountOfTurns = 2,
-                        },
-                    }
+                    new DamageComponent(.2f),
+                    new DamageComponent(.2f),
+                    new StatusEffectComponent(StatusEffect.Poison, .2f),
                 })
                 .Build();
         }
@@ -79,35 +48,14 @@ namespace Monsters.Console.Utils.Builders
                 .SetStat(Stat.Attack, 14)
                 .SetStat(Stat.Defense, 8)
                 .SetStat(Stat.Speed, 102)
-                .AddSkill(new ActiveSkill
+                .AddSkill(new ActiveSkill("Claw", Target.Enemy), new Component[]
                 {
-                    Name = "Claw",
-                    Cooldown = 0,
-                    Target = Target.Enemy,
-                    Components = new List<Component>
-                    {
-                        new DamageComponent
-                        {
-                            DamageMultiplier = .9f,
-                        },
-                    }
+                    new DamageComponent(.9f),
                 })
-                .AddSkill(new ActiveSkill
+                .AddSkill(new ActiveSkill("Bite", Target.Enemy, 2), new Component[]
                 {
-                    Name = "Bite",
-                    Cooldown = 2,
-                    Target = Target.Enemy,
-                    Components = new List<Component>
-                    {
-                        new DamageComponent
-                        {
-                            DamageMultiplier = .6f,
-                        },
-                        new DamageComponent
-                        {
-                            DamageMultiplier = .6f,
-                        },
-                    }
+                    new DamageComponent(.6f),
+                    new DamageComponent(.6f),
                 })
                 .Build();
         }

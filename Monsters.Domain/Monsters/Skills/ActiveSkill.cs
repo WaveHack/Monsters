@@ -5,10 +5,15 @@ namespace Monsters.Domain.Monsters.Skills
 {
     public class ActiveSkill : Skill
     {
-        public int Cooldown { get; set; }
+        public Target Target { get; }
+        public int Cooldown { get; }
+        public List<Component> Components { get; } = new();
 
-        public Target Target { get; set; }
-
-        public List<Component> Components { get; set; } = new();
+        public ActiveSkill(string name, Target target, int cooldown = 0)
+        {
+            Name = name;
+            Target = target;
+            Cooldown = cooldown;
+        }
     }
 }

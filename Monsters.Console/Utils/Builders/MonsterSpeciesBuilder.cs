@@ -1,5 +1,7 @@
-﻿using Monsters.Domain.Monsters;
+﻿using System.Collections.Generic;
+using Monsters.Domain.Monsters;
 using Monsters.Domain.Monsters.Skills;
+using Monsters.Domain.Monsters.Skills.Components;
 using Monsters.Domain.Monsters.Stats;
 
 namespace Monsters.Console.Utils.Builders
@@ -42,6 +44,12 @@ namespace Monsters.Console.Utils.Builders
         {
             _monsterSpecies.Skills.Add(skill);
             return this;
+        }
+
+        public MonsterSpeciesBuilder AddSkill(ActiveSkill skill, IEnumerable<Component> components)
+        {
+            skill.Components.AddRange(components);
+            return AddSkill(skill);
         }
     }
 }

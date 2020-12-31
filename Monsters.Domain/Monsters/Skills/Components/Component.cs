@@ -2,6 +2,6 @@
 {
     public abstract class Component
     {
-        public Target? TargetOverride { get; set; } = null;
+        // public Target? TargetOverride { get; set; } = null;
     }
 }

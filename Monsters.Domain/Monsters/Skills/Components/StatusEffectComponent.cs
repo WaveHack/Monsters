@@ -2,10 +2,15 @@
 {
     public class StatusEffectComponent : Component
     {
-        public int ChanceToApply { get; set; } = 100;
+        public StatusEffect StatusEffect { get; }
+        public float ChanceToApply { get; }
+        public int AmountOfTurns { get; }
 
-        public StatusEffect StatusEffect { get; set; }
-
-        public int AmountOfTurns { get; set; } = 1;
+        public StatusEffectComponent(StatusEffect statusEffect, float chanceToApply, int amountOfTurns = 2)
+        {
+            StatusEffect = statusEffect;
+            ChanceToApply = chanceToApply;
+            AmountOfTurns = amountOfTurns;
+        }
     }
 }
