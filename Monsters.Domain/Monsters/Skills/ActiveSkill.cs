@@ -9,6 +9,6 @@ namespace Monsters.Domain.Monsters.Skills
 
         public Target Target { get; set; }
 
-        public List<Component> Components { get; set; }
+        public List<Component> Components { get; set; } = new();
     }
 }
