@@ -8,6 +8,15 @@ namespace Monsters.Console.Utils.Builders
 {
     public class MonsterSpeciesBuilder
     {
+        private static readonly Dictionary<Stat, int> DefaultSecondaryStats = new()
+        {
+            {Stat.Speed, 100},
+            {Stat.Accuracy, 0},
+            {Stat.Resistance, 15},
+            {Stat.CriticalRate, 15},
+            {Stat.CriticalDamage, 50},
+        };
+
         private MonsterSpecies _monsterSpecies = new();
 
         public MonsterSpecies Build() => _monsterSpecies;
@@ -32,11 +41,9 @@ namespace Monsters.Console.Utils.Builders
 
         public MonsterSpeciesBuilder SetDefaultSecondaryStats()
         {
-            _monsterSpecies.Stats[Stat.Speed] = 100;
-            _monsterSpecies.Stats[Stat.Accuracy] = 0;
-            _monsterSpecies.Stats[Stat.Resistance] = 15;
-            _monsterSpecies.Stats[Stat.CriticalRate] = 15;
-            _monsterSpecies.Stats[Stat.CriticalDamage] = 50;
+            foreach (var (stat, value) in DefaultSecondaryStats)
+                _monsterSpecies.Stats[stat] = value;
+
             return this;
         }
 
