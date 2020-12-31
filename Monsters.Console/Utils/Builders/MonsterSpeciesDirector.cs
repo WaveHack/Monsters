@@ -8,7 +8,7 @@ namespace Monsters.Console.Utils.Builders
 {
     public class MonsterSpeciesDirector
     {
-        private MonsterSpeciesBuilder _builder;
+        private readonly MonsterSpeciesBuilder _builder;
 
         public MonsterSpeciesDirector(MonsterSpeciesBuilder builder)
         {
