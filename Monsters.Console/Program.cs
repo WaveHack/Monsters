@@ -83,11 +83,8 @@ namespace Monsters.Console
 
                             var realDamage = (int) Math.Round(damage);
 
-                            // var targetMaxHealth = target.Monster.Stats[Stat.Health];
-                            var targetCurrentHealth = target.CurrentStats[Stat.Health];
-                            var targetNewHealth = targetCurrentHealth - realDamage;
-
-                            var damagePercentage = (1 - (float) targetNewHealth / targetCurrentHealth) * 100;
+                            var targetMaxHealth = target.Monster.Stats[Stat.Health];
+                            var damagePercentage = (1 - (float) (targetMaxHealth - realDamage) / targetMaxHealth) * 100;
 
                             target.CurrentStats[Stat.Health] -= realDamage;
 
