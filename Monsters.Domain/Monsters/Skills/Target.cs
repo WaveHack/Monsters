@@ -2,14 +2,14 @@
 {
     public enum Target
     {
-        // None,
+        None,
         Self,
         Friendly,
-        // FriendlyIncludingDead, // revive
-        // FriendlyDeadOnly, // revive
-        FriendlyTeam,
+        FriendlyIncludingDead, // eg revive
+        FriendlyDeadOnly, // eg revive
+        FriendlyTeam, // eg buff
         Enemy,
         EnemyTeam,
-        AllTeams,
+        All,
     }
 }
