@@ -27,9 +27,7 @@ namespace Monsters.Domain.Monsters
         private void RecalculateStats()
         {
             foreach (Stat stat in Enum.GetValues(typeof(Stat)))
-            {
                 Stats[stat] = StatCalculator.CalculateMonsterStat(this, stat);
-            }
         }
 
         public override string ToString()
