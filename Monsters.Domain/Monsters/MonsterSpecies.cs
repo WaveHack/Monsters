@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 using Monsters.Domain.Monsters.Skills;
-using Monsters.Domain.Monsters.Skills.Components;
 using Monsters.Domain.Monsters.Stats;
 
 namespace Monsters.Domain.Monsters
