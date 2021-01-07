@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Monsters.Console.Utils;
 using Monsters.Console.Utils.Builders;
 using Monsters.Domain.Combat;
 using Monsters.Domain.Combat.Controllers;
@@ -21,6 +22,18 @@ namespace Monsters.Console
 
             var slimeSpecies = director.CreateSlime();
             var wolfSpecies = director.CreateWolf();
+
+            System.Console.WriteLine();
+            foreach (var level in new[] {/*1, 5, 10, 20, 30, */40})
+            {
+                var attacker = new Monster(wolfSpecies, level);
+                var defender = new Monster(slimeSpecies, level);
+
+                DamageReporter.ReportDamage(attacker, defender);
+
+                System.Console.WriteLine();
+            }
+            return;
 
             var playerTeam = new List<Monster>
             {
