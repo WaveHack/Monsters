@@ -23,9 +23,9 @@ namespace Monsters.Domain.Monsters.Stats
 
             var statMultiplier = stat switch
             {
-                Stat.Health => levelModifier * 2f,
-                Stat.Attack => levelModifier / 2f,
-                Stat.Defense => levelModifier / 2f,
+                Stat.Health => levelModifier / 5f,
+                Stat.Attack => levelModifier / 20f,
+                Stat.Defense => levelModifier / 20f,
                 _ => throw new ArgumentOutOfRangeException(nameof(stat), stat, $"{stat} is not a primary stat")
             };
 

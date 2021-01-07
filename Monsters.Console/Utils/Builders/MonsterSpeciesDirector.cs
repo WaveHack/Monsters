@@ -21,9 +21,9 @@ namespace Monsters.Console.Utils.Builders
                 .Reset()
                 .SetName("Slime")
                 .SetDefaultSecondaryStats()
-                .SetStat(Stat.Health, 10)
-                .SetStat(Stat.Attack, 10)
-                .SetStat(Stat.Defense, 10)
+                .SetStat(Stat.Health, 100)
+                .SetStat(Stat.Attack, 100)
+                .SetStat(Stat.Defense, 100)
                 .AddSkill(new ActiveSkill("Slime", Target.Enemy), new Component[]
                 {
                     new DamageComponent(.8f),
@@ -44,9 +44,9 @@ namespace Monsters.Console.Utils.Builders
                 .Reset()
                 .SetName("Wolf")
                 .SetDefaultSecondaryStats()
-                .SetStat(Stat.Health, 8)
-                .SetStat(Stat.Attack, 14)
-                .SetStat(Stat.Defense, 8)
+                .SetStat(Stat.Health, 80)
+                .SetStat(Stat.Attack, 140)
+                .SetStat(Stat.Defense, 80)
                 .SetStat(Stat.Speed, 102)
                 .AddSkill(new ActiveSkill("Claw", Target.Enemy), new Component[]
                 {
