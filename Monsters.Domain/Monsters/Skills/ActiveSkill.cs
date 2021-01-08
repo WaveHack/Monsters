@@ -11,9 +11,10 @@ namespace Monsters.Domain.Monsters.Skills
         public int Cooldown { get; }
         public List<Component> Components { get; } = new();
 
-        public ActiveSkill(string name, Target target, int cooldown = DefaultCooldown)
+        public ActiveSkill(string name, string description, Target target, int cooldown = DefaultCooldown)
         {
             Name = name;
+            Description = description;
             Target = target;
             Cooldown = cooldown;
         }

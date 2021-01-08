@@ -24,7 +24,7 @@ namespace Monsters.Domain.Combat.Controllers
                 var activeSkill = (ActiveSkill) skill;
                 // var isOnCooldown = activeSkill.Cooldown > 0;
 
-                sb.Append($"[{i}] {activeSkill.Name}");
+                sb.Append($"[{i}] {activeSkill.Name} - {activeSkill.Description}");
 
                 // if (isOnCooldown)
                     // sb.Append(" [on cooldown]");

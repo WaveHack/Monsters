@@ -24,15 +24,25 @@ namespace Monsters.Console.Utils.Builders
                 .SetStat(Stat.Health, 100)
                 .SetStat(Stat.Attack, 100)
                 .SetStat(Stat.Defense, 100)
-                .AddSkill(new ActiveSkill("Slime", Target.Enemy), new Component[]
+                .AddSkill(new ActiveSkill(
+                    "Spit",
+                    "Spits at the enemy for 80% damage. Has a 20% chance to apply poison for 2 turns.",
+                    Target.Enemy
+                ), new Component[]
                 {
                     new DamageComponent(.8f),
                     new StatusEffectComponent(StatusEffect.Poison, .2f),
                 })
-                .AddSkill(new ActiveSkill("Spread Goo", Target.EnemyTeam, 2), new Component[]
+                .AddSkill(new ActiveSkill(
+                    "Spread Goo",
+                    "Covers the enemy in goo for 2x20% damage and lowers their speed for 2 turns. Has a 20% chance to apply poison for 2 turns.",
+                    Target.EnemyTeam,
+                    2
+                ), new Component[]
                 {
                     new DamageComponent(.2f),
                     new DamageComponent(.2f),
+                    new StatusEffectComponent(StatusEffect.SpeedBreak),
                     new StatusEffectComponent(StatusEffect.Poison, .2f),
                 })
                 .Build();
@@ -48,14 +58,33 @@ namespace Monsters.Console.Utils.Builders
                 .SetStat(Stat.Attack, 140)
                 .SetStat(Stat.Defense, 80)
                 .SetStat(Stat.Speed, 102)
-                .AddSkill(new ActiveSkill("Claw", Target.Enemy), new Component[]
+                .AddSkill(new ActiveSkill(
+                    "Claw",
+                    "Claws the enemy for 90% damage.",
+                    Target.Enemy
+                ), new Component[]
                 {
                     new DamageComponent(.9f),
                 })
-                .AddSkill(new ActiveSkill("Bite", Target.Enemy, 2), new Component[]
+                .AddSkill(new ActiveSkill(
+                    "Bite",
+                    "Bites the enemy for 2x60% damage.",
+                    Target.Enemy,
+                    2
+                ), new Component[]
                 {
                     new DamageComponent(.6f),
                     new DamageComponent(.6f),
+                })
+                .AddSkill(new ActiveSkill(
+                    "Howl",
+                    "Increases your team's attack and critical rate for 2 turns.",
+                    Target.FriendlyTeam,
+                    3
+                ), new Component[]
+                {
+                    new StatusEffectComponent(StatusEffect.AttackBoost),
+                    new StatusEffectComponent(StatusEffect.CriticalRateBoost),
                 })
                 .Build();
         }
