@@ -16,13 +16,15 @@ namespace Monsters.Console.Utils
             var attackMultiplier = 0.6f;
 
             System.Console.WriteLine($"Lv {attacker.Level} {attacker.Species.Name} ({attack} ATK) vs lv {defender.Level} {defender.Species.Name} ({defense} DEF, {defender.Stats[Stat.Health]} HP):");
-            System.Console.WriteLine($"Single damaging attack with {attackMultiplier:P0} multiplier");
+            // System.Console.WriteLine($"Single damaging attack with {attackMultiplier:P0} multiplier");
             System.Console.WriteLine();
 
-            ReportHit("no buffs", attack, defense, health, attackMultiplier);
-            ReportHit("-50% def break", attack, defense / 2, health, attackMultiplier);
-            ReportHit("+50% atk boost", (int)Math.Round(attack * 1.5), defense, health, attackMultiplier);
-            ReportHit("both", (int)Math.Round(attack * 1.5), defense / 2, health, attackMultiplier);
+            ReportHit("no buffs", attack, defense, health, 1.2f);
+            ReportHit("no buffs", attack, defense, health, 0.3f, 4);
+
+            // ReportHit("-50% def break", attack, defense / 2, health, attackMultiplier);
+            // ReportHit("+50% atk boost", (int)Math.Round(attack * 1.5), defense, health, attackMultiplier);
+            // ReportHit("both", (int)Math.Round(attack * 1.5), defense / 2, health, attackMultiplier);
         }
 
         private static void ReportHit(
@@ -30,15 +32,20 @@ namespace Monsters.Console.Utils
             int attack,
             int defense,
             int health,
-            float attackMultiplier
+            float attackMultiplier = 1f,
+            int numAttacks = 1
         )
         {
             var attackWithMultiplier = (int) Math.Round(attack * attackMultiplier);
             var damageDone = DamageCalculator.GetDamage(attackWithMultiplier, defense);
-            var damageDonePercentage = 1 - (health - damageDone) / (float) health;
-            var hitsToKill = CalculateHitsToKill(damageDone, health);
+            var totalDamageDone = damageDone * numAttacks;
+            var damageDonePercentage = 1 - (health - totalDamageDone) / (float) health;
+            var hitsToKill = CalculateHitsToKill(totalDamageDone, health);
 
-            System.Console.WriteLine($"{damageDone} dmg, {hitDescription} ({damageDonePercentage:P}, htk: {hitsToKill})");
+            if (numAttacks == 1)
+                System.Console.WriteLine($"{damageDone} dmg, {hitDescription} ({damageDonePercentage:P}, htk: {hitsToKill})");
+            else if (numAttacks > 1)
+                System.Console.WriteLine($"{totalDamageDone} dmg ({numAttacks}x {damageDone}), {hitDescription} ({damageDonePercentage:P}, htk: {hitsToKill})");
         }
 
         private static int CalculateHitsToKill(int damage, int health)
