@@ -19,12 +19,10 @@ namespace Monsters.Console.Utils
             // System.Console.WriteLine($"Single damaging attack with {attackMultiplier:P0} multiplier");
             System.Console.WriteLine();
 
-            ReportHit("no buffs", attack, defense, health, 1.2f);
-            ReportHit("no buffs", attack, defense, health, 0.3f, 4);
-
-            // ReportHit("-50% def break", attack, defense / 2, health, attackMultiplier);
-            // ReportHit("+50% atk boost", (int)Math.Round(attack * 1.5), defense, health, attackMultiplier);
-            // ReportHit("both", (int)Math.Round(attack * 1.5), defense / 2, health, attackMultiplier);
+            ReportHit("no buffs", attack, defense, health, attackMultiplier);
+            ReportHit("-50% def break", attack, defense / 2, health, attackMultiplier);
+            ReportHit("+50% atk boost", (int)Math.Round(attack * 1.5), defense, health, attackMultiplier);
+            ReportHit("both", (int)Math.Round(attack * 1.5), defense / 2, health, attackMultiplier);
         }
 
         private static void ReportHit(
