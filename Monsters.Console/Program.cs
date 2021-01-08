@@ -23,28 +23,28 @@ namespace Monsters.Console
             var slimeSpecies = director.CreateSlime();
             var wolfSpecies = director.CreateWolf();
 
-            System.Console.WriteLine();
-            foreach (var level in new[] {/*1, 5, 10, 20, 30, */40})
-            {
-                var attacker = new Monster(wolfSpecies, level);
-                var defender = new Monster(slimeSpecies, level);
-
-                DamageReporter.ReportDamage(attacker, defender);
-
-                System.Console.WriteLine();
-            }
-            return;
+            // System.Console.WriteLine();
+            // foreach (var level in new[] {/*1, 5, 10, 20, 30, */40})
+            // {
+            //     var attacker = new Monster(slimeSpecies, level);
+            //     var defender = new Monster(slimeSpecies, level);
+            //
+            //     DamageReporter.ReportDamage(attacker, defender);
+            //
+            //     System.Console.WriteLine();
+            // }
+            // return;
 
             var playerTeam = new List<Monster>
             {
                 new(wolfSpecies, 40),
-                new(slimeSpecies, 40),
+                // new(slimeSpecies, 40),
             };
 
             var enemyTeam = new List<Monster>
             {
                 new(slimeSpecies, 40),
-                new(slimeSpecies, 40),
+                // new(slimeSpecies, 40),
             };
 
             var localPlayerController = new LocalPlayerController();
